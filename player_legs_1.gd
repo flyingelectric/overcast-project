@@ -52,12 +52,12 @@ func get_player_speed():
 	return 150 #walking
 
 func _physics_process(delta: float) -> void:
-	#collision_shape_2d.disabled = inUse
-	#$HitBox.disabled = not inUse
+	collision_shape_2d.disabled = inUse
+	$HitBox.disabled = not inUse
 	
 	if Input.is_action_just_pressed("connect_part") && inUse: _dismount()
 	
-	if not mounted:
+	if not inUse:
 		return
 	
 	var direction := Input.get_axis("move_left", "move_right")
