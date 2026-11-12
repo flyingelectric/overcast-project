@@ -1,0 +1,178 @@
+[gd_scene format=3 uid="uid://cjc18e4qlsaoc"]
+
+[ext_resource type="Script" uid="uid://bwbw6rf833r3v" path="res://player_legs_1.gd" id="1_hujcp"]
+[ext_resource type="Texture2D" uid="uid://dlbc62ch14tib" path="res://robot ref sheet/robot ref sheet(spritesheets) _0001(legs) _0001.png" id="2_hujcp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8xv38"]
+size = Vector2(24, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hujcp"]
+size = Vector2(56, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ld3jp"]
+size = Vector2(31, 41)
+
+[sub_resource type="Animation" id="Animation_som03"]
+resource_name = "CROUCHED"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+
+[sub_resource type="Animation" id="Animation_hujcp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [11]
+}
+
+[sub_resource type="Animation" id="Animation_cupva"]
+resource_name = "crouch"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [5, 4, 1, 9, 6]
+}
+
+[sub_resource type="Animation" id="Animation_6hb23"]
+resource_name = "crouch_walk"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 0]
+}
+
+[sub_resource type="Animation" id="Animation_oru6a"]
+resource_name = "jump"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1638, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [11, 10, 7, 10]
+}
+
+[sub_resource type="Animation" id="Animation_dtm72"]
+resource_name = "uncrouch"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 9, 1, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_dycm1"]
+resource_name = "walk"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [5, 8, 5, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oru6a"]
+_data = {
+&"CROUCHED": SubResource("Animation_som03"),
+&"RESET": SubResource("Animation_hujcp"),
+&"crouch": SubResource("Animation_cupva"),
+&"crouch_walk": SubResource("Animation_6hb23"),
+&"jump": SubResource("Animation_oru6a"),
+&"uncrouch": SubResource("Animation_dtm72"),
+&"walk": SubResource("Animation_dycm1")
+}
+
+[node name="PlayerLegsNormal" type="CharacterBody2D" unique_id=902401363]
+collision_mask = 14
+script = ExtResource("1_hujcp")
+Part_to_Connect = 1
+
+[node name="BodyContainer" type="Node2D" parent="." unique_id=331531279]
+
+[node name="BodyPosition" type="Marker2D" parent="." unique_id=1278622565]
+position = Vector2(0, -37)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=374602891]
+texture_filter = 1
+position = Vector2(0, -46)
+texture = ExtResource("2_hujcp")
+hframes = 3
+vframes = 4
+frame = 11
+region_rect = Rect2(52, 92, 24, 36)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=966431420]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_8xv38")
+
+[node name="HitBox" type="CollisionShape2D" parent="." unique_id=785996798]
+position = Vector2(0, -46)
+shape = SubResource("RectangleShape2D_hujcp")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=882665870]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=799252973]
+position = Vector2(-0.5, -2.5)
+shape = SubResource("RectangleShape2D_ld3jp")
+debug_color = Color(0.6710898, 0.50847083, 0.05610417, 0.41960785)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=624813329]
+libraries/ = SubResource("AnimationLibrary_oru6a")
+
+[node name="CrouchTimer" type="Timer" parent="." unique_id=1570862656]
+wait_time = 0.25
+one_shot = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

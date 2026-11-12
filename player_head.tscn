@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://p3tr43wtmd10"]
+
+[ext_resource type="Script" uid="uid://bqh3dh2p7l5tu" path="res://player_head.gd" id="1_2weuv"]
+[ext_resource type="Texture2D" uid="uid://bjoy6mfgcbmd2" path="res://robot ref sheet/robot ref sheet(spritesheets) _0001(head) _0003.png" id="2_2weuv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8xv38"]
+size = Vector2(54, 34)
+
+[node name="playerHead" type="CharacterBody2D" unique_id=1492368312]
+collision_mask = 14
+script = ExtResource("1_2weuv")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=880801594]
+process_callback = 0
+limit_left = -1000
+limit_top = -1000
+limit_right = 1000
+limit_bottom = 1000
+limit_smoothed = true
+position_smoothing_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1071355135]
+texture_filter = 1
+texture = ExtResource("2_2weuv")
+hframes = 3
+vframes = 4
+region_rect = Rect2(38, 0, 52, 54)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1759314200]
+position = Vector2(2, 12)
+shape = SubResource("RectangleShape2D_8xv38")

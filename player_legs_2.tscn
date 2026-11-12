@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://dlbr0aqmu47b7"]
+
+[ext_resource type="Script" uid="uid://c6amueteecx4v" path="res://player_legs_2.gd" id="1_a8oja"]
+[ext_resource type="Texture2D" uid="uid://ea6kgawvbxrq" path="res://robot ref sheet/robot ref sheet(legs_rocket) _0001.png" id="2_j4mi8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8xv38"]
+size = Vector2(24, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hujcp"]
+size = Vector2(56, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ld3jp"]
+size = Vector2(31, 41)
+
+[node name="PlayerLegsRocket" type="CharacterBody2D" unique_id=902401363]
+collision_mask = 14
+script = ExtResource("1_a8oja")
+Part_to_Connect = 2
+
+[node name="BodyContainer" type="Node2D" parent="." unique_id=331531279]
+
+[node name="BodyPosition" type="Marker2D" parent="." unique_id=1278622565]
+position = Vector2(0, -37)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=374602891]
+texture_filter = 1
+texture = ExtResource("2_j4mi8")
+region_enabled = true
+region_rect = Rect2(52, 92, 28, 36)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=966431420]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_8xv38")
+
+[node name="HitBox" type="CollisionShape2D" parent="." unique_id=785996798]
+position = Vector2(0, -46)
+shape = SubResource("RectangleShape2D_hujcp")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=882665870]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=799252973]
+position = Vector2(-0.5, -2.5)
+shape = SubResource("RectangleShape2D_ld3jp")
+debug_color = Color(0.6710898, 0.50847083, 0.05610417, 0.41960785)
+
+[node name="CrouchTimer" type="Timer" parent="." unique_id=1570862656]
+wait_time = 0.25
+one_shot = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

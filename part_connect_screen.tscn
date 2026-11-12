@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://wsrc6e5pmj6u"]
+
+[ext_resource type="Script" uid="uid://b8b73y1tojtwp" path="res://part_connect_screen.gd" id="1_da5le"]
+[ext_resource type="Texture2D" uid="uid://cec3y255bm7vn" path="res://robot ref sheet/robot ref sheet(legs) _0001.png" id="2_rpj1l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lwxi7"]
+draw_center = false
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[node name="PartConnectScreen" type="CanvasLayer" unique_id=605408981]
+process_mode = 3
+script = ExtResource("1_da5le")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1309104638]
+offset_left = -1.0
+offset_right = 959.0
+offset_bottom = 640.0
+color = Color(0, 0, 0, 0.39215687)
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect" unique_id=1221256986]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1.0
+offset_right = 961.0
+offset_bottom = 640.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CenterContainer" unique_id=590531658]
+layout_mode = 2
+
+[node name="IconIMG" type="TextureRect" parent="ColorRect/CenterContainer/VBoxContainer" unique_id=1786740575]
+layout_mode = 2
+texture = ExtResource("2_rpj1l")
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CenterContainer/VBoxContainer" unique_id=1494329584]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="ColorRect/CenterContainer/VBoxContainer/VBoxContainer" unique_id=1070524224]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_lwxi7")
+text = "NAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DescriptionLabel" type="Label" parent="ColorRect/CenterContainer/VBoxContainer/VBoxContainer" unique_id=293123707]
+custom_minimum_size = Vector2(650, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "DESCRIPTION"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="CloseLabel" type="Label" parent="ColorRect/CenterContainer/VBoxContainer/VBoxContainer" unique_id=975610901]
+layout_mode = 2
+text = "Press any button to continue"
+horizontal_alignment = 1
+vertical_alignment = 2
+justification_flags = 171

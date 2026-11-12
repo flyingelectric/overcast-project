@@ -1,0 +1,24 @@
+[gd_scene format=4 uid="uid://dubipy6eg0kgm"]
+
+[ext_resource type="Script" uid="uid://cfmdwkr6fmgvs" path="res://main.gd" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://pfjguyuc2ufj" path="res://player_bot.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://d4h80s6kxfnob" path="res://overcast_tilemap.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://iappwsbkn5un" path="res://part_connect.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://bf33cvv2akwgs" path="res://pause_menu.tscn" id="5_lquwl"]
+
+[node name="Main" type="Node" unique_id=1455981048]
+script = ExtResource("1_h2yge")
+
+[node name="PlayerBot" parent="." unique_id=339755471 instance=ExtResource("2_h2yge")]
+
+[node name="SpawnPoint" type="Marker2D" parent="." unique_id=1202369573]
+position = Vector2(480, 320)
+
+[node name="OvercastTilemap" parent="." unique_id=1331234871 instance=ExtResource("3_h2yge")]
+tile_map_data = PackedByteArray("AAAEAAcAAAAAAAEAAAAFAAcAAAABAAEAAAAGAAcAAAABAAEAAAAGAAgAAAABAAMAAAAHAAcAAAABAAEAAAAIAAcAAAABAAEAAAAJAAcAAAABAAEAAAAKAAcAAAACAAEAAAAKAAgAAAACAAMAAAAJAAgAAAABAAMAAAAIAAgAAAABAAMAAAAHAAgAAAABAAMAAAAFAAgAAAABAAMAAAAEAAgAAAAAAAMAAAA=")
+
+[node name="AbilityLegs" parent="." unique_id=1658297529 instance=ExtResource("4_1bvp3")]
+position = Vector2(430, 415)
+Part_to_Connect = 0
+
+[node name="PauseMenu" parent="." unique_id=779810925 instance=ExtResource("5_lquwl")]

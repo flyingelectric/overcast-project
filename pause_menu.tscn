@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bf33cvv2akwgs"]
+
+[ext_resource type="Script" uid="uid://bcvxc56wm2yhl" path="res://pause_menu.gd" id="1_hdmo1"]
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=779810925]
+process_mode = 3
+script = ExtResource("1_hdmo1")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1853253731]
+offset_right = 960.0
+offset_bottom = 640.0
+color = Color(0, 0, 0, 0.155)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=379796798]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=181359947]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1427294825]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Resume"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
